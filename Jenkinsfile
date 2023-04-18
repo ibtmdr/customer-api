@@ -10,7 +10,7 @@ pipeline {
 	APP_NAME = "customer-api"
 	REGION= "us-east-2"
 	ENVIRONMENT= "Sandbox"
-	URI="https://anypoint.mulesoft.com"
+	URI = "https://anypoint.mulesoft.com"
   } 
   stages {
     stage('Build') {
