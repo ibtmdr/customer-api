@@ -39,12 +39,13 @@
 							    <password>${anypoint.password}</password>
 							    <!-- Organisation Parameter -->
 							    <businessGroup>${cloudhub.bg}</businessGroup>
+							    <businessGroupId>${cloudhub.bgid}</businessGroupId>
 							    <region>${cloudhub.region}</region>
 								<!-- Environment Parameter -->
 								<environment>${cloudhub.environment}</environment>
 							    <applicationName>${cloudhub.app}</applicationName>
 							    <workers>${cloudhub.workers}</workers>
-							    <workerType>${cloudhub.worker}</workerType>
+							    <workerType>${cloudhub.workersize}</workerType>
 							    <objectStoreV2>true</objectStoreV2>
 				     </cloudHubDeployment>
 				</configuration>
