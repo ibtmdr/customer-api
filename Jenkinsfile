@@ -15,7 +15,6 @@ pipeline {
   stages {
     stage('Deploiment CloudHub') { 
       environment {
-        ANYPOINT_CREDENTIALS = credentials('deploy-anypoint-user')
         ENVIRONMENT= "Sandbox"
       }
       steps {
