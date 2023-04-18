@@ -4,8 +4,8 @@ pipeline {
 	MULE_URI = "https://anypoint.mulesoft.com"
     DEPLOY_CREDS = credentials('deploy-anypoint-user')
     MULE_VERSION = "4.4.0"
-    BG = "None"
-    BGID = "9f51add0-4db7-4281-ba02-a07dc471768f"
+    BG = "Cap4"
+    BGID = "6a860bc2-7c16-4fc4-8c42-9a362133e5f9"
     WORKERS = "1"
     WORKERSIZE = "MICRO"
 	APP_NAME = "customer-api"
