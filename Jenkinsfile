@@ -16,7 +16,7 @@ pipeline {
     stage('Deploiment CloudHub') { 
       environment {
         ANYPOINT_CREDENTIALS = credentials('deploy-anypoint-user')
-        ENVIRONMENT=Sandbox
+        ENVIRONMENT= "Sandbox"
       }
       steps {
         sh 'mvn deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.uri="%MULE_URI%"  "-Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKERS%" -Dcloudhub.workersize="%WORKERSIZE%" -Dcloudhub.region="%REGION%" '
@@ -25,7 +25,4 @@ pipeline {
   }
 }
 
-							    <environment>${cloudhub.environment}</environment>
-							    <applicationName>${cloudhub.app}</applicationName>
-							    <workers>${cloudhub.workers}</workers>
-							    <workerType>${cloudhub.worker}</workerType>
+							
