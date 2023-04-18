@@ -10,14 +10,26 @@ pipeline {
     WORKERSIZE = "MICRO"
 	APP_NAME = "customer-api"
 	REGION= "us-east-2"
+	ENVIRONMENT= "Sandbox"
   }
   stages {
+    stage('Build') {
+      steps {
+          sh  'mvn -B -U -e -V clean -DskipTests package'
+      }
+    }
+
+    stage('Test') {
+      steps {
+          sh "mvn test"
+      }
+    }
     stage('Deploiment CloudHub') { 
       environment {
         ENVIRONMENT= "Sandbox"
       }
       steps {
-        sh 'mvn deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.uri="%MULE_URI%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.bgid="%BGID%"  -Dcloudhub.worker="%WORKERS%" -Dcloudhub.workersize="%WORKERSIZE%" -Dcloudhub.region="%REGION%"'
+        sh 'mvn -U -V -e -B  deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.uri="%MULE_URI%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.bgid="%BGID%"  -Dcloudhub.worker="%WORKERS%" -Dcloudhub.workersize="%WORKERSIZE%" -Dcloudhub.region="%REGION%"'
       }
     }
   }
