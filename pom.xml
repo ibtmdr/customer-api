@@ -14,7 +14,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0-20220824</app.runtime>
-		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version> 	
+		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version> 	
 		<mule.version>4.4.0</mule.version>
 	</properties>
 
@@ -32,17 +32,19 @@
 				<extensions>true</extensions>
 			    <configuration>
 				     <cloudHubDeployment>
-								<muleVersion>${mule.version}</muleVersion>
-							    <username>${anypoint.username}</username>
-							    <password>${anypoint.password}</password>
-							    <businessGroup>${cloudhub.bg}</businessGroup>
-							    <businessGroupId>${cloudhub.bgid}</businessGroupId>
-							    <region>${cloudhub.region}</region>
-							    <environment>${cloudhub.environment}</environment>
-							    <applicationName>${cloudhub.app}</applicationName>
-							    <workers>${cloudhub.workers}</workers>
-							    <workerType>${cloudhub.workersize}</workerType>
-							    <objectStoreV2>true</objectStoreV2>
+						<muleVersion>${mule.version}</muleVersion>
+					    <username>${anypoint.username}</username>
+						<password>${anypoint.password}</password>
+						<businessGroup>${cloudhub.bg}</businessGroup>
+						<businessGroupId>${cloudhub.bgid}</businessGroupId>
+						<region>${cloudhub.region}</region>
+						<environment>${cloudhub.environment}</environment>
+						<applicationName>${cloudhub.app}</applicationName>
+						<workers>${cloudhub.workers}</workers>
+						<workerType>${cloudhub.workersize}</workerType>
+						<uri>${anypoint.uri}</uri>
+						<objectStoreV2>true</objectStoreV2>
+						<skipDeploymentVerification>true</skipDeploymentVerification>
 				     </cloudHubDeployment>
 				</configuration>
 			</plugin>
@@ -69,7 +71,7 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
-
+	
 	<repositories>
 		<repository>
 			<id>anypoint-exchange-v3</id>
@@ -83,6 +85,18 @@
 			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
+		<repository>
+			<id>mulesoft-public</id>
+			<name>MuleSoft Public Repository</name>
+			<url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>Repository</id>
+			<name>Corporate Repository</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v1/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
+			<layout>default</layout>
+	    </repository>
 	</repositories>
 
 	<pluginRepositories>
@@ -94,10 +108,6 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>mule-public</id>
-			<url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
 		</pluginRepository>
 	</pluginRepositories>
 
