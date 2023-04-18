@@ -34,15 +34,12 @@
 				     <cloudHubDeployment>
 								<uri>${anypoint.uri}</uri>
 							    <muleVersion>${mule.version}</muleVersion>
-							    <!-- Deploy User Parameter -->
 							    <username>${anypoint.username}</username>
 							    <password>${anypoint.password}</password>
-							    <!-- Organisation Parameter -->
 							    <businessGroup>${cloudhub.bg}</businessGroup>
 							    <businessGroupId>${cloudhub.bgid}</businessGroupId>
 							    <region>${cloudhub.region}</region>
-								<!-- Environment Parameter -->
-								<environment>${cloudhub.environment}</environment>
+							    <environment>${cloudhub.environment}</environment>
 							    <applicationName>${cloudhub.app}</applicationName>
 							    <workers>${cloudhub.workers}</workers>
 							    <workerType>${cloudhub.workersize}</workerType>
