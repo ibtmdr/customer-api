@@ -42,7 +42,6 @@
 						<applicationName>${cloudhub.app}</applicationName>
 						<workers>${cloudhub.workers}</workers>
 						<workerType>${cloudhub.workersize}</workerType>
-						<uri>${anypoint.uri}</uri>
 						<objectStoreV2>true</objectStoreV2>
 						<skipDeploymentVerification>true</skipDeploymentVerification>
 				     </cloudHubDeployment>
