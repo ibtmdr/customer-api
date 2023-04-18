@@ -14,7 +14,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0-20220824</app.runtime>
-		<mule.maven.plugin.version>3.8.0</mule.maven.plugin.version>
+		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version> 	
+		<mule.version>4.4.0</mule.version>
 	</properties>
 
 	<build>
@@ -29,6 +30,24 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+			    <configuration>
+				     <cloudHubDeployment>
+								<uri>${anypoint.uri}</uri>
+							    <muleVersion>${mule.version}</muleVersion>
+							    <!-- Deploy User Parameter -->
+							    <username>${anypoint.username}</username>
+							    <password>${anypoint.password}</password>
+							    <!-- Organisation Parameter -->
+							    <businessGroup>${cloudhub.bg}</businessGroup>
+							    <region>${cloudhub.region}</region>
+								<!-- Environment Parameter -->
+								<environment>${cloudhub.environment}</environment>
+							    <applicationName>${cloudhub.app}</applicationName>
+							    <workers>${cloudhub.workers}</workers>
+							    <workerType>${cloudhub.worker}</workerType>
+							    <objectStoreV2>true</objectStoreV2>
+				     </cloudHubDeployment>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -78,6 +97,10 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>mule-public</id>
+			<url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
 		</pluginRepository>
 	</pluginRepositories>
 

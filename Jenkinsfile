@@ -1,32 +1,22 @@
 pipeline {
-    agent any
-    triggers {
-        pollSCM('H/2 * * * *') 
+  agent any
+  environment {
+    //adding a comment for the commit test
+	
+    DEPLOY_CREDS = credentials('deploy-anypoint-user')
+    MULE_VERSION = '4.4.0'
+    BG = "None"
+    WORKER = "MICRO"
+	APP_NAME = "customer-api"
+  }
+  stages {
+    stage('Deploiment CloudHub') { 
+      environment {
+        ANYPOINT_CREDENTIALS = credentials('deploy-anypoint-user')
+      }
+      steps {
+        sh 'mvn deploy -DmuleDeploy -Dmule.version="%MULE_VERSION%" -Danypoint.username="%DEPLOY_CREDS_USR%" -Danypoint.password="%DEPLOY_CREDS_PSW%" -Dcloudhub.app="%APP_NAME%" -Dcloudhub.environment="%ENVIRONMENT%" -Dcloudhub.bg="%BG%" -Dcloudhub.worker="%WORKER%"'
+      }
     }
-    stages {
-        stage('Example') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-        stage('slack-notification') {
-            steps {
-                slackSend(
-                 color:  "good",
-                 message: "<$JOB_URL|$JOB_NAME> ($currentBuild.currentResult): Build <$RUN_DISPLAY_URL|$BUILD_DISPLAY_NAME> ($currentBuild.durationString) : ",
-                 baseUrl: "https://devops-ngp9932.slack.com/services/hooks/jenkins-ci",
-                 channel: "général"
-                 ) 
-            }
-        }
-        stage('mail-notification') {
-            steps {
-                emailext(
-                    subject: '$DEFAULT_SUBJECT', 
-                    to: 'ibtissammdarbi@gmail.com', 
-                    body: 'test'
-                )
-            }
-        }
-    }
+  }
 }
