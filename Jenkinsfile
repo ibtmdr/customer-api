@@ -38,7 +38,7 @@ pipeline {
           branch 'main'
       }
       environment {
-          ENVIRONMENT= "Design"
+          ENVIRONMENT= "Develop"
       }
       steps {
           sh "mvn -e -X clean package deploy -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
