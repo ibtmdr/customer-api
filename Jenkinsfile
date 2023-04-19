@@ -22,7 +22,10 @@ pipeline {
           sh "mvn test"
       }
     }
-    stage('Deploiment CloudHub to Sandbox') { 
+    stage('Deploiment CloudHub to Sandbox') {
+      when {
+          branch 'dev'
+      } 
       environment {
           ENVIRONMENT= "Sandbox"
       }
@@ -31,6 +34,9 @@ pipeline {
       }
     }
     stage('Deploiment CloudHub to Design') { 
+      when {
+          branch 'main'
+      }
       environment {
           ENVIRONMENT= "Design"
       }
