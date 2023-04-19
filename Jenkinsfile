@@ -14,13 +14,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-          bat "mvn clean -DskipTests package"
+          sh "mvn clean -DskipTests package"
       }
     }
 
     stage('Test') {
       steps {
-          bat "mvn test"
+          sh "mvn test"
       }
     }
     stage('Deploiment CloudHub to Sandbox') { 
@@ -28,7 +28,7 @@ pipeline {
           ENVIRONMENT= "Sandbox"
       }
       steps {
-          bat "mvn -e -X clean package deploy -DmuleDeploy -Dmule.version=4.4.0  -Danypoint.username=mdrIbtissam  -Danypoint.password=Ibtissam@12345  -Dcloudhub.app=customer-api-123  -Dcloudhub.environment=Sandbox  -Dcloudhub.bg=Cap4  -Dcloudhub.workers=1  -Dcloudhub.workersize=Micro  -Dcloudhub.bgid=6a860bc2-7c16-4fc4-8c42-9a362133e5f9 -Dcloudhub.region=us-east-2"
+          sh "mvn -e -X clean package deploy -DmuleDeploy -Dmule.version=4.4.0  -Danypoint.username=mdrIbtissam  -Danypoint.password=Ibtissam@12345  -Dcloudhub.app=customer-api-123  -Dcloudhub.environment=Sandbox  -Dcloudhub.bg=Cap4  -Dcloudhub.workers=1  -Dcloudhub.workersize=Micro  -Dcloudhub.bgid=6a860bc2-7c16-4fc4-8c42-9a362133e5f9 -Dcloudhub.region=us-east-2"
       }
     }
   }
