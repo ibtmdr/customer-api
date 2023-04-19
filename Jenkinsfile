@@ -13,35 +13,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-          sh "mvn clean -DskipTests package"
+          sh "mvn clean install"
       }
     }
 
-    stage('Test') {
+    stage('Deploiment CloudHub') { 
+    
       steps {
-          sh "mvn test"
-      }
-    }
-    stage('Deploiment CloudHub to Sandbox') {
-      when {
-          branch 'dev'
-      } 
-      environment {
-          ENVIRONMENT= "Sandbox"
-      }
-      steps {
-          sh "mvn -e -X clean package deploy -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
-      }
-    }
-    stage('Deploiment CloudHub to Design') { 
-      when {
-          branch 'main'
-      }
-      environment {
-          ENVIRONMENT= "Develop"
-      }
-      steps {
-          sh "mvn -e -X clean package deploy -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
+          sh "mvn -e -X deploy -DmuleDeploy -Dmule.version=${env.MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${env.APP_NAME}-${env.ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${env.ENVIRONMENT} -Dcloudhub.bg=${env.BG} -Dcloudhub.bgid=${env.BGID}  -Dcloudhub.worker=${env.WORKERS} -Dcloudhub.workersize=${env.WORKERSIZE} -Dcloudhub.region=${env.REGION}"
       }
     }
   }
