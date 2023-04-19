@@ -7,7 +7,7 @@ pipeline {
     BGID = "6a860bc2-7c16-4fc4-8c42-9a362133e5f9"
     WORKERS = "1"
     WORKERSIZE = "Micro"
-	APP_NAME = "customer-api"
+	APP_NAME = "customer-api-1234"
 	REGION= "us-east-2"
 	ENVIRONMENT= "Sandbox"
   } 
