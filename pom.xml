@@ -40,7 +40,7 @@
 						<businessGroupId>${cloudhub.bgid}</businessGroupId>
 						<region>${cloudhub.region}</region>
 						<environment>${cloudhub.environment}</environment>
-						<applicationName>${cloudhub.app}</applicationName>
+						<applicationName>${cloudhub.app}-123</applicationName>
 						<workers>${cloudhub.workers}</workers>
 						<workerType>${cloudhub.workersize}</workerType>
 						<objectStoreV2>true</objectStoreV2>
