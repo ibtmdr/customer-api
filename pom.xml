@@ -46,6 +46,9 @@
 						<objectStoreV2>true</objectStoreV2>
 						<skipDeploymentVerification>true</skipDeploymentVerification>
 				     </cloudHubDeployment>
+				     <properties>
+					     <mule.env>${mule.env}</mule.env>
+					</properties>
 				</configuration>
 			</plugin>
 		</plugins>

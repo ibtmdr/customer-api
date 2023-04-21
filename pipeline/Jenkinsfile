@@ -20,11 +20,13 @@ pipeline {
       }
     }
 
-    stage('Test') {
+    stage('Test and build') {
       steps {
-          sh "mvn test"
+          echo "testing ..."
+	      sh 'mvn --settings pipeline/settings.xml clean package'
       }
     }
+    
     stage('Deploiment CloudHub to Sandbox') {
       when {
           branch 'dev'
@@ -33,11 +35,11 @@ pipeline {
           ENVIRONMENT= "Sandbox"
       }
       steps {
-          sh "mvn -e -X clean package deploy -Dmule.env=${ENVIRONMENT.toLowerCase()} -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
+          sh "mvn -e -X deploy -Dmule.env=${ENVIRONMENT.toLowerCase()} -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
       }
     }
     
-    stage('Deploiment CloudHub to Design') { 
+    stage('Deploiment CloudHub to Develop') { 
       when {
           branch 'main'
       }
@@ -45,7 +47,7 @@ pipeline {
           ENVIRONMENT= "Develop"
       }
       steps {
-          sh "mvn -e -X clean package deploy -Dmule.env=${ENVIRONMENT.toLowerCase()} -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
+          sh "mvn -e -X deploy -Dmule.env=${ENVIRONMENT.toLowerCase()} -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
       }
     }
     
