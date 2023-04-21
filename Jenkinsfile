@@ -10,10 +10,13 @@ pipeline {
 		APP_NAME = "customer-api"
 		REGION= "us-east-2"
   } 
+  triggers {
+        pollSCM('H/2 * * * *') 
+   }
   stages {
     stage('Build') {
       steps {
-          sh "mvn clean -DskipTests package"
+          sh "mvn clean install"
       }
     }
 
@@ -33,6 +36,7 @@ pipeline {
           sh "mvn -e -X clean package deploy -Dmule.env=${ENVIRONMENT.toLowerCase()} -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
       }
     }
+    
     stage('Deploiment CloudHub to Design') { 
       when {
           branch 'main'
@@ -44,6 +48,26 @@ pipeline {
           sh "mvn -e -X clean package deploy -Dmule.env=${ENVIRONMENT.toLowerCase()} -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
       }
     }
+    
+    stage('slack-notification') {
+            steps {
+                slackSend(
+                 color:  "good",
+                 message: "<$JOB_URL|$JOB_NAME> ($currentBuild.currentResult): Build <$RUN_DISPLAY_URL|$BUILD_DISPLAY_NAME> ($currentBuild.durationString) : ",
+                 baseUrl: "https://devops-ngp9932.slack.com/services/hooks/jenkins-ci",
+                 channel: "général"
+                 ) 
+            }
+        }
+        stage('mail-notification') {
+            steps {
+                emailext(
+                    subject: '$DEFAULT_SUBJECT', 
+                    to: 'ibtissammdarbi@gmail.com', 
+                    body: 'OK'
+                )
+            }
+        }
   }
 }
 
