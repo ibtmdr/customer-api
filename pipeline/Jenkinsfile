@@ -14,12 +14,7 @@ pipeline {
         pollSCM('H/2 * * * *') 
    }
   stages {
-    stage('Build') {
-      steps {
-          sh "mvn clean install"
-      }
-    }
-
+  
     stage('Test and build') {
       steps {
           echo "testing ..."
