@@ -7,6 +7,7 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
     <apikit:config name="customer-api-config" api="customer-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <configuration-properties doc:name="Configuration properties" doc:id="5ef44bb5-3023-4211-b474-11b48f2443ce" file="${mule.env}-config.yaml" />
 	<api-gateway:autodiscovery apiId="${autodiscovery}" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="44400143-176d-44dd-9e4f-bc99836255ee" flowRef="customer-api-main" />
+	<global-property doc:name="Global Property" doc:id="5d59bcf1-357a-4234-9ffa-4a47b5da07f6" name="mule.env" value="develop" />
 	<flow name="customer-api-main">
         <http:listener config-ref="customer-api-httpListenerConfig" path="/api/*">
             <http:response statusCode="#[vars.httpStatus default 200]">
