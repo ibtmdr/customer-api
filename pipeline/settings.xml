@@ -4,27 +4,54 @@
     <localRepository>C:/Users/HP/.m2/repository</localRepository>
 	<servers>
 		<server>
-			<id>Repository</id>
-			<username>mdrIbtissam</username>
-			<password>Ibtissam@12345</password>
-		</server>
-		<server>
-			<id>anypoint-exchange-v3</id>
-			<username>mdrIbtissam</username>
-			<password>Ibtissam@12345</password>
-		</server>
-		<server>
 		  <id>MuleRepository</id>
 		  <username>yourMuleNexusID</username>
 		  <password>yourMuleNexusPassword</password>
 		</server>
-	  </servers>
+	    <server>
+	      <id>anypoint-exchange-v3</id>
+	      <username>myexchange</username>
+	      <password>0209d120726a46928785e5584c7c20a8~?~99e03cd1443040fEaEA8557de99A3C4c</password>
+	    </server>
+	    <server>
+	      <id>Repository</id>
+	      <username>repository-mule</username>
+	      <password>df57f299b67240f4a1414ab5f14b0cc3~?~0B6Ece4412fd40459d75f72a7cd527C8</password>
+	    </server>
+	    <server>
+	      <id>PrivateExchangeRepository</id>
+	      <username>myexchange</username>
+	      <password>0209d120726a46928785e5584c7c20a8~?~99e03cd1443040fEaEA8557de99A3C4c</password>
+	    </server>
+  </servers>
 
   <pluginGroups>
     <pluginGroup>org.mule.tools</pluginGroup>
   </pluginGroups>
 
-  <profiles>
+
+   <profiles>
+                <profile>
+                    <id>cloudhub-deploy-env</id>
+                    <properties>
+                        <cloudhub.uri>https://anypoint.mulesoft.com</cloudhub.uri>
+                        <cloudhub.username>$(cloudhub.username)</cloudhub.username>
+                        <cloudhub.password>$(cloudhub.password)</cloudhub.password>
+                        <cloudhub.applicationName>$(cloudhub.applicationName)</cloudhub.applicationName>
+                        <cloudhub.environment>$(cloudhub.environment)</cloudhub.environment>
+                        <cloudhub.businessGroup>$(cloudhub.businessGroup)</cloudhub.businessGroup>
+                        <cloudhub.businessGroupId>$(cloudhub.businessGroupId)</cloudhub.businessGroupId>
+                        <cloudhub.region>$(cloudhub.region)</cloudhub.region>
+                        <cloudhub.workerType>$(cloudhub.workerType)</cloudhub.workerType>
+                        <cloudhub.workers>$(cloudhub.workers)</cloudhub.workers>
+                        <deploy.env>$(deploy.env)</deploy.env>
+                        <deploy.client_id>$(deploy.client_id)</deploy.client_id>
+                        <deploy.client_secret>$(deploy.client_secret)</deploy.client_secret>
+                        <deploy.api-gatekeeper>$(deploy.api-gatekeeper)</deploy.api-gatekeeper>
+                        <deploy.api-monitoring>$(deploy.api-monitoring)</deploy.api-monitoring>
+                    </properties>
+                </profile>
+ 
     <profile>
       <id>mule-extra-repos</id>
       <activation>

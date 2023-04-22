@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
+	<groupId>6a860bc2-7c16-4fc4-8c42-9a362133e5f9</groupId>
 	<artifactId>customer-api</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
@@ -14,8 +14,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0-20220824</app.runtime>
-		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version> 	
 		<mule.version>4.4.0</mule.version>
+		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version> 	
 	</properties>
 
 	<build>
@@ -32,23 +32,32 @@
 				<extensions>true</extensions>
 			    <configuration>
 				     <cloudHubDeployment>
-				        <uri>https://anypoint.mulesoft.com</uri>
-				        <muleVersion>${mule.version}</muleVersion>
-					    <username>${anypoint.username}</username>
-					    <password>${anypoint.password}</password>
-						<businessGroup>${cloudhub.bg}</businessGroup>
-						<businessGroupId>${cloudhub.bgid}</businessGroupId>
-						<region>${cloudhub.region}</region>
+				        <uri>${cloudhub.uri}</uri>
+						<username>${cloudhub.username}</username>
+						<password>${cloudhub.password}</password>
+						<applicationName>cdc-${project.artifactId}-${deploy.env}</applicationName>
 						<environment>${cloudhub.environment}</environment>
-						<applicationName>${cloudhub.app}</applicationName>
+						<businessGroup>${cloudhub.businessGroup}</businessGroup>
+						<region>${cloudhub.region}</region>
+						<muleVersion>${mule.runtime}</muleVersion>
+						<workerType>${cloudhub.workerType}</workerType>
 						<workers>${cloudhub.workers}</workers>
-						<workerType>${cloudhub.workersize}</workerType>
 						<objectStoreV2>true</objectStoreV2>
-						<skipDeploymentVerification>true</skipDeploymentVerification>
-				     </cloudHubDeployment>
-				     <properties>
-					     <mule.env>${mule.env}</mule.env>
-					</properties>
+						<deploymentTimeout>1200000</deploymentTimeout>
+
+						<!-- Properties provided on command line that are dynamically passed 
+							to the Application as application properties for runtime. Those elements 
+							are similar to the ones you would provide as application parameters in studio 
+							app startup. -->
+						<properties>
+							<mule.env>${deploy.env}</mule.env>
+							<secure.encryptionKey>${deploy.secure.encryption.key}</secure.encryptionKey>
+							<anypoint.platform.client_id>${deploy.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${deploy.client_secret}</anypoint.platform.client_secret>
+							<anypoint.platform.gatekeeper>${deploy.api-gatekeeper}</anypoint.platform.gatekeeper>
+							<anypoint.platform.config.analytics.agent.enabled>${deploy.api-monitoring}</anypoint.platform.config.analytics.agent.enabled>
+						</properties>
+				    </cloudHubDeployment>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -89,29 +98,11 @@
 			<layout>default</layout>
 		</repository>
 		<repository>
-			<id>mulesoft-public</id>
-			<name>MuleSoft Public Repository</name>
-			<url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
+			<id>PrivateExchangeRepository</id>
+			<name>Private Exchange repository</name>
+		    <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
 			<layout>default</layout>
-		</repository>
-		 <repository>
-                <id>MuleRepository</id>
-                <name>MuleRepository</name>
-                <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
-                <layout>default</layout>
-                <releases>
-                    <enabled>true</enabled>
-                </releases>
-                <snapshots>
-                    <enabled>true</enabled>
-                </snapshots>
-            </repository>
-<!-- 		<repository> -->
-<!-- 			<id>Repository</id> -->
-<!-- 			<name>Corporate Repository</name> -->
-<!-- 			<url>https://maven.anypoint.mulesoft.com/api/v1/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url> -->
-<!-- 			<layout>default</layout> -->
-<!-- 	    </repository> -->
+		 </repository>
 	</repositories>
 
 	<pluginRepositories>
@@ -125,5 +116,14 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+	
+	<distributionManagement>
+	    <repository>
+	        <id>PrivateExchangeRepository</id>
+	        <name>Private Exchange repository</name>
+	        <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
+	        <layout>default</layout>
+	     </repository>
+	</distributionManagement>
 
 </project>

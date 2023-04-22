@@ -1,14 +1,23 @@
 pipeline {
   agent any
   environment {
-		DEPLOY_CREDS = credentials('deploy-anypoint-user')
-	    MULE_VERSION = "4.4.0"
-	    BG = "Cap4"
-	    BGID = "6a860bc2-7c16-4fc4-8c42-9a362133e5f9"
-	    WORKERS = "1"
-	    WORKERSIZE = "Micro"
-		APP_NAME = "customer-api"
-		REGION= "us-east-2"
+     DEPLOY_CREDS_USR = credentials('deploy-anypoint-user')
+     cloudhub.username=""
+     cloudhub.password=""
+     cloudhub.applicationName="customer-api"
+     cloudhub.environment=
+     cloudhub.businessGroup="Cap4"
+     cloudhub.businessGroupId="6a860bc2-7c16-4fc4-8c42-9a362133e5f9"
+     cloudhub.region="us-east-2"
+     cloudhub.workerType="Micro"
+     cloudhub.workers="1"
+     deploy.env=develop
+     deploy.client_id="5a690a46de9044c58299752d21e85a14"
+     deploy.client_secret="aFc62e8F0cd8496d9E3E0223cbC397dc"
+     deploy.api-gatekeeper="disabled"
+     deploy.api-monitoring="true"
+	     
+	  
   } 
   triggers {
         pollSCM('H/2 * * * *') 
@@ -18,7 +27,7 @@ pipeline {
     stage('Test and build') {
       steps {
           echo "testing ..."
-	      sh 'mvn --settings pipeline/settings.xml clean package'
+	      sh 'mvn -e -X clean package --settings pipeline/settings.xml -Pcloudhub-deploy-env'
       }
     }
     
@@ -27,10 +36,10 @@ pipeline {
           branch 'dev'
       } 
       environment {
-          ENVIRONMENT= "Sandbox"
+          deploy.env== "Sandbox"
       }
       steps {
-          sh "mvn -e -X deploy -Dmule.env=${ENVIRONMENT.toLowerCase()} -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
+          sh "mvn -e -X deploy -DmuleDeploy --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
       }
     }
     
@@ -39,10 +48,10 @@ pipeline {
           branch 'main'
       }
       environment {
-          ENVIRONMENT= "Develop"
+          deploy.env== "Develop"
       }
       steps {
-          sh "mvn -e -X deploy -Dmule.env=${ENVIRONMENT.toLowerCase()} -DmuleDeploy -Dmule.version=${MULE_VERSION} -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW} -Dcloudhub.app=${APP_NAME}-${ENVIRONMENT.toLowerCase()} -Dcloudhub.environment=${ENVIRONMENT} -Dcloudhub.bg=${BG} -Dcloudhub.bgid=${BGID}  -Dcloudhub.worker=${WORKERS} -Dcloudhub.workersize=${WORKERSIZE} -Dcloudhub.region=${REGION}"
+          sh "mvn -e -X deploy -DmuleDeploy --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
       }
     }
     
