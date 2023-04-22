@@ -47,8 +47,8 @@
                         <deploy.env>$(deploy.env)</deploy.env>
                         <deploy.client_id>$(deploy.client_id)</deploy.client_id>
                         <deploy.client_secret>$(deploy.client_secret)</deploy.client_secret>
-                        <deploy.api-gatekeeper>$(deploy.api-gatekeeper)</deploy.api-gatekeeper>
-                        <deploy.api-monitoring>$(deploy.api-monitoring)</deploy.api-monitoring>
+                        <deploy.api-gatekeeper>$(deploy.api_gatekeeper)</deploy.api-gatekeeper>
+                        <deploy.api-monitoring>$(deploy.api_monitoring)</deploy.api-monitoring>
                     </properties>
                 </profile>
  

@@ -14,8 +14,8 @@ pipeline {
      deploy.env=develop
      deploy.client_id="5a690a46de9044c58299752d21e85a14"
      deploy.client_secret="aFc62e8F0cd8496d9E3E0223cbC397dc"
-     deploy.api-gatekeeper="disabled"
-     deploy.api-monitoring="true"
+     deploy.api_gatekeeper="disabled"
+     deploy.api_monitoring="true"
 	     
 	  
   } 
