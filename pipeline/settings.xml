@@ -14,9 +14,9 @@
 	    </server>
 	    <server>
 	      <id>Repository</id>
-	      <username>~~~repository-mule~~~</username>
-	      <password>df57f299b67240f4a1414ab5f14b0cc3~?~0B6Ece4412fd40459d75f72a7cd527C8</password>
-	    </server>
+	      <username>mdrIbtissam</username>
+		  <password>Ibtissam@12345</password>
+		</server>
 	    <server>
 	      <id>PrivateExchangeRepository</id>
           <username>mdrIbtissam</username>
