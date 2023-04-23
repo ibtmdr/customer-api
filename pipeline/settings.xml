@@ -44,6 +44,7 @@
                         <cloudhub.region>$(cloudhub_region)</cloudhub.region>
                         <cloudhub.workerType>$(cloudhub_workerType)</cloudhub.workerType>
                         <cloudhub.workers>1</cloudhub.workers>
+                        <cloudhub.muleVersion>$(cloudhub.muleVersion)</cloudhub.muleVersion>
                         <deploy.env>$(deploy_env)</deploy.env>
                         <deploy.client_id>$(deploy_client_id)</deploy.client_id>
                         <deploy.client_secret>$(deploy_client_secret)</deploy.client_secret>

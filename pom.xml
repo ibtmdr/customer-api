@@ -39,7 +39,7 @@
 						<environment>${cloudhub.environment}</environment>
 						<businessGroup>${cloudhub.businessGroup}</businessGroup>
 						<region>${cloudhub.region}</region>
-						<muleVersion>${mule.runtime}</muleVersion>
+						<muleVersion>${cloudhub.muleVersion}</muleVersion>
 						<workerType>${cloudhub.workerType}</workerType>
 						<workers>${cloudhub.workers}</workers>
 						<objectStoreV2>true</objectStoreV2>
