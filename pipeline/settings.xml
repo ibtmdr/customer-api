@@ -36,19 +36,19 @@
                         <cloudhub.uri>https://anypoint.mulesoft.com</cloudhub.uri>
                         <cloudhub.username>$(cloudhub_username)</cloudhub.username>
                         <cloudhub.password>$(cloudhub_password)</cloudhub.password>
-                        <cloudhub.applicationName>$(cloudhub_applicationName)</cloudhub.applicationName>
+                        <cloudhub.applicationName>${env.cloudhub_applicationName}</cloudhub.applicationName>
                         <cloudhub.environment>Develop</cloudhub.environment>
-                        <cloudhub.businessGroup>$(cloudhub_businessGroup)</cloudhub.businessGroup>
-                        <cloudhub.businessGroupId>$(cloudhub_businessGroupId)</cloudhub.businessGroupId>
+                        <cloudhub.businessGroup>${env.cloudhub_businessGroup}</cloudhub.businessGroup>
+                        <cloudhub.businessGroupId>${env.cloudhub_businessGroupId}</cloudhub.businessGroupId>
                         <cloudhub.region>${env.cloudhub_region}</cloudhub.region>
-                        <cloudhub.workerType>$(cloudhub_workerType)</cloudhub.workerType>
+                        <cloudhub.workerType>${env.cloudhub_workerType}</cloudhub.workerType>
                         <cloudhub.workers>1</cloudhub.workers>
-                        <cloudhub.muleVersion>$(cloudhub_muleVersion)</cloudhub.muleVersion>
+                        <cloudhub.muleVersion>{env.cloudhub_muleVersion}</cloudhub.muleVersion>
                         <deploy.env>develop</deploy.env>
-                        <deploy.client_id>$(deploy_client_id)</deploy.client_id>
-                        <deploy.client_secret>$(deploy_client_secret)</deploy.client_secret>
-                        <deploy.api-gatekeeper>$(deploy_api_gatekeeper)</deploy.api-gatekeeper>
-                        <deploy.api-monitoring>$(deploy_api_monitoring)</deploy.api-monitoring>
+                        <deploy.client_id>${env.deploy_client_id}</deploy.client_id>
+                        <deploy.client_secret>${env.deploy_client_secret}</deploy.client_secret>
+                        <deploy.api-gatekeeper>${env.deploy_api_gatekeeper}</deploy.api-gatekeeper>
+                        <deploy.api-monitoring>${env.deploy_api_monitoring}</deploy.api-monitoring>
                     </properties>
                 </profile>
  
