@@ -26,7 +26,7 @@ pipeline {
     stage('Test and build') {
       steps {
           echo "testing ..."
-	      sh 'mvn clean package -DskipTests --settings pipeline/settings.xml -Pcloudhub-deploy-env'
+	      sh 'mvn clean package --settings pipeline/settings.xml -P cloudhub-deploy-env'
       }
     }
     
@@ -36,10 +36,10 @@ pipeline {
       } 
       environment {
           deploy_env= "sandbox"
-          cloudhub_environment="sandbox"
+          cloudhub_environment="Sandbox"
       }
       steps {
-          sh "mvn deploy -DskipTests -DmuleDeploy -Dmule.home=/opt/mule --settings pipeline/settings.xml -P cloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
+          sh "mvn deploy -DmuleDeploy -Dmule.home=/opt/mule --settings pipeline/settings.xml -P cloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
       }
     }
     
@@ -49,10 +49,10 @@ pipeline {
       }
       environment {
           deploy_env="develop"
-          cloudhub_environment="develop"
+          cloudhub_environment="Develop"
       }
       steps {
-          sh "mvn deploy -DskipTests -DmuleDeploy -Dmule.home=/opt/mule --settings pipeline/settings.xml -P cloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
+          sh "mvn deploy -DmuleDeploy -Dmule.home=/opt/mule --settings pipeline/settings.xml -P cloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
       }
     }
     
