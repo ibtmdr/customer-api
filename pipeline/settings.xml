@@ -43,7 +43,7 @@
                         <cloudhub.businessGroupId>$(cloudhub.businessGroupId)</cloudhub.businessGroupId>
                         <cloudhub.region>$(cloudhub_region)</cloudhub.region>
                         <cloudhub.workerType>$(cloudhub_workerType)</cloudhub.workerType>
-                        <cloudhub.workers>$(cloudhub_workers)</cloudhub.workers>
+                        <cloudhub.workers>$(cloudhub_workers.toInteger())</cloudhub.workers>
                         <deploy.env>$(deploy_env)</deploy.env>
                         <deploy.client_id>$(deploy_client_id)</deploy.client_id>
                         <deploy.client_secret>$(deploy_client_secret)</deploy.client_secret>
