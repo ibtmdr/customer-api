@@ -16,7 +16,7 @@
 		<app.runtime>4.4.0-20220824</app.runtime>
 		<mule.runtime>4.4.0</mule.runtime>
 		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version>
-		<munit.version>2.3.13</munit.version>
+		<munit.version>2.3.12</munit.version>
 	</properties>
 
 	<build>
