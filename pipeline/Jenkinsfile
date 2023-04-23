@@ -1,11 +1,11 @@
 pipeline {
   agent any
   environment {
-     DEPLOY_CREDS_USR = credentials('deploy-anypoint-user')
+     DEPLOY_CREDS_USR=credentials('deploy-anypoint-user')
      cloudhub.username=""
      cloudhub.password=""
      cloudhub.applicationName="customer-api"
-     cloudhub.environment=
+     cloudhub.environment=""
      cloudhub.businessGroup="Cap4"
      cloudhub.businessGroupId="6a860bc2-7c16-4fc4-8c42-9a362133e5f9"
      cloudhub.region="us-east-2"
@@ -16,8 +16,6 @@ pipeline {
      deploy.client_secret="aFc62e8F0cd8496d9E3E0223cbC397dc"
      deploy.api_gatekeeper="disabled"
      deploy.api_monitoring="true"
-	     
-	  
   } 
   triggers {
         pollSCM('H/2 * * * *') 
@@ -36,7 +34,7 @@ pipeline {
           branch 'dev'
       } 
       environment {
-          deploy.env== "Sandbox"
+          deploy.env= "Sandbox"
       }
       steps {
           sh "mvn -e -X deploy -DmuleDeploy --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
@@ -48,7 +46,7 @@ pipeline {
           branch 'main'
       }
       environment {
-          deploy.env== "Develop"
+          deploy.env="Develop"
       }
       steps {
           sh "mvn -e -X deploy -DmuleDeploy --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
