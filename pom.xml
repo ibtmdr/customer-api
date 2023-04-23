@@ -138,19 +138,19 @@
 		<repository>
 			<id>anypoint-exchange-v3</id>
 			<name>Anypoint Exchange</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+			<url>http://maven.anypoint.mulesoft.com/api/v3/maven</url>
 			<layout>default</layout>
 		</repository>
 		<repository>
 			<id>mulesoft-releases</id>
 			<name>MuleSoft Releases Repository</name>
-			<url>https://repository.mulesoft.org/releases/</url>
+			<url>http://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
 		<repository>
 			<id>PrivateExchangeRepository</id>
 			<name>Private Exchange repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
+			<url>http://maven.anypoint.mulesoft.com/api/v3/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
 			<layout>default</layout>
 		</repository>
 	</repositories>
@@ -160,7 +160,7 @@
 			<id>mulesoft-releases</id>
 			<name>MuleSoft Releases Repository</name>
 			<layout>default</layout>
-			<url>https://repository.mulesoft.org/releases/</url>
+			<url>http://repository.mulesoft.org/releases/</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -170,7 +170,7 @@
 		<repository>
 			<id>PrivateExchangeRepository</id>
 			<name>Private Exchange repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
+			<url>http://maven.anypoint.mulesoft.com/api/v3/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
 			<layout>default</layout>
 		</repository>
 	</distributionManagement>
