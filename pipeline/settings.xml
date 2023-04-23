@@ -34,17 +34,17 @@
                     <id>cloudhub-deploy-env</id>
                     <properties>
                         <cloudhub.uri>https://anypoint.mulesoft.com</cloudhub.uri>
-                        <cloudhub.username>$(cloudhub_username)</cloudhub.username>
-                        <cloudhub.password>$(cloudhub_password)</cloudhub.password>
+                        <cloudhub.username>${env.cloudhub_username}</cloudhub.username>
+                        <cloudhub.password>${env.cloudhub_password}</cloudhub.password>
                         <cloudhub.applicationName>${env.cloudhub_applicationName}</cloudhub.applicationName>
-                        <cloudhub.environment>Develop</cloudhub.environment>
+                        <cloudhub.environment>${env.cloudhub_environment}</cloudhub.environment>
                         <cloudhub.businessGroup>${env.cloudhub_businessGroup}</cloudhub.businessGroup>
                         <cloudhub.businessGroupId>${env.cloudhub_businessGroupId}</cloudhub.businessGroupId>
                         <cloudhub.region>${env.cloudhub_region}</cloudhub.region>
                         <cloudhub.workerType>${env.cloudhub_workerType}</cloudhub.workerType>
-                        <cloudhub.workers>1</cloudhub.workers>
+                        <cloudhub.workers>${env.cloudhub.workers}</cloudhub.workers>
                         <cloudhub.muleVersion>{env.cloudhub_muleVersion}</cloudhub.muleVersion>
-                        <deploy.env>develop</deploy.env>
+                        <deploy.env>${env.deploy_env}</deploy.env>
                         <deploy.client_id>${env.deploy_client_id}</deploy.client_id>
                         <deploy.client_secret>${env.deploy_client_secret}</deploy.client_secret>
                         <deploy.api-gatekeeper>${env.deploy_api_gatekeeper}</deploy.api-gatekeeper>
