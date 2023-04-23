@@ -39,7 +39,7 @@ pipeline {
           cloudhub_environment="sandbox"
       }
       steps {
-          sh "mvn -e -X deploy -DmuleDeploy --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
+          sh "mvn -e -X deploy -DmuleDeploy -Dmule.home=/opt/mule --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
       }
     }
     
@@ -52,7 +52,7 @@ pipeline {
           cloudhub_environment="develop"
       }
       steps {
-          sh "mvn -e -X deploy -DmuleDeploy --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
+          sh "mvn -e -X deploy -DmuleDeploy -Dmule.home=/opt/mule --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
       }
     }
     
