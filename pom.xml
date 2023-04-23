@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.4.0-20220824</app.runtime>
+		<app.runtime>4.4.0</app.runtime>
 		<mule.version>4.4.0</mule.version>
 		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version> 	
 	</properties>
