@@ -44,7 +44,7 @@
                         <cloudhub.workerType>$(cloudhub_workerType)</cloudhub.workerType>
                         <cloudhub.workers>1</cloudhub.workers>
                         <cloudhub.muleVersion>$(cloudhub_muleVersion)</cloudhub.muleVersion>
-                        <deploy.env>$(deploy_env)</deploy.env>
+                        <deploy.env>develop</deploy.env>
                         <deploy.client_id>$(deploy_client_id)</deploy.client_id>
                         <deploy.client_secret>$(deploy_client_secret)</deploy.client_secret>
                         <deploy.api-gatekeeper>$(deploy_api_gatekeeper)</deploy.api-gatekeeper>
