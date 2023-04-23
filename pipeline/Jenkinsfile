@@ -5,7 +5,7 @@ pipeline {
      cloudhub_username=""
      cloudhub_password=""
      cloudhub_applicationName="customer-api"
-     cloudhub_environment="Develop"
+     cloudhub_environment="develop"
      cloudhub_businessGroup="Cap4"
      cloudhub_businessGroupId="6a860bc2-7c16-4fc4-8c42-9a362133e5f9"
      cloudhub_region="us-east-2"
