@@ -35,8 +35,8 @@ pipeline {
           branch 'dev'
       } 
       environment {
-          deploy_env= "Sandbox"
-          cloudhub_environment="Sandbox"
+          deploy_env= "sandbox"
+          cloudhub_environment="sandbox"
       }
       steps {
           sh "mvn -e -X deploy -DmuleDeploy --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
@@ -48,8 +48,8 @@ pipeline {
           branch 'main'
       }
       environment {
-          deploy_env="Develop"
-          cloudhub_environment="Develop"
+          deploy_env="develop"
+          cloudhub_environment="develop"
       }
       steps {
           sh "mvn -e -X deploy -DmuleDeploy --settings pipeline/settings.xml -Pcloudhub-deploy-env -Danypoint.username=${DEPLOY_CREDS_USR} -Danypoint.password=${DEPLOY_CREDS_PSW}"
