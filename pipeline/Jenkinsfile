@@ -10,7 +10,7 @@ pipeline {
      cloudhub_businessGroupId="6a860bc2-7c16-4fc4-8c42-9a362133e5f9"
      cloudhub_region="us-east-2"
      cloudhub_workerType="Micro"
-     cloudhub_workers="1"
+     cloudhub_workers=1
      deploy_env="develop"
      deploy_client_id="5a690a46de9044c58299752d21e85a14"
      deploy_client_secret="aFc62e8F0cd8496d9E3E0223cbC397dc"
