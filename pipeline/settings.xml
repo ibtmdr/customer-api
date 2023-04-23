@@ -41,7 +41,7 @@
                         <cloudhub.environment>Develop</cloudhub.environment>
                         <cloudhub.businessGroup>$(cloudhub.businessGroup)</cloudhub.businessGroup>
                         <cloudhub.businessGroupId>$(cloudhub.businessGroupId)</cloudhub.businessGroupId>
-                        <cloudhub.region>$(cloudhub_region)</cloudhub.region>
+                        <cloudhub.region>us-east-2</cloudhub.region>
                         <cloudhub.workerType>$(cloudhub_workerType)</cloudhub.workerType>
                         <cloudhub.workers>1</cloudhub.workers>
                         <cloudhub.muleVersion>$(cloudhub_muleVersion)</cloudhub.muleVersion>
