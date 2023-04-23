@@ -95,6 +95,13 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
+		  <groupId>6a860bc2-7c16-4fc4-8c42-9a362133e5f9</groupId>
+		  <artifactId>customer-api</artifactId>
+		  <version>1.0.0</version>
+		  <classifier>raml</classifier>
+		  <type>zip</type>
+		</dependency>
+		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-sockets-connector</artifactId>
 			<version>1.2.2</version>
