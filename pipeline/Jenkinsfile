@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-     DEPLOY_CREDS_USR=credentials('deploy-anypoint-user')
+     DEPLOY_CREDS=credentials('deploy-anypoint-user')
      cloudhub_username=""
      cloudhub_password=""
      cloudhub_applicationName="customer-api"
