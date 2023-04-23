@@ -128,22 +128,6 @@ output application/json
         </error-handler>
     </flow>
     <flow name="get:\customer:customer-api-config">
-        <ee:transform>
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-[
-  {
-    accountID: "AC123",
-    name: "The first account"
-  }, 
-  {
-    accountID: "AC456",
-    name: "The second account"
-  }
-]]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
+		<http:request method="GET" doc:name="call cats api" doc:id="77df1c6f-e603-41f6-a5f8-14f002fad9fd" url="https://catfact.ninja/fact" sendCorrelationId="ALWAYS"/>
     </flow>
 </mule>
