@@ -11,7 +11,7 @@ pipeline {
      cloudhub_region="us-east-2"
      cloudhub_workerType="Micro"
      cloudhub_workers=1
-     cloudhub.muleVersion="4.4.0"
+     cloudhub_muleVersion="4.4.0"
      deploy_env="develop"
      deploy_client_id="5a690a46de9044c58299752d21e85a14"
      deploy_client_secret="aFc62e8F0cd8496d9E3E0223cbC397dc"
