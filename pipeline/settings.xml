@@ -61,14 +61,14 @@
       <repositories>
         <repository>
           <id>mule-public</id>
-          <url>http://repository.mulesoft.org/nexus/content/repositories/public</url>
+          <url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
         </repository>
       </repositories>
 
       <pluginRepositories>
         <pluginRepository>
           <id>mule-public</id>
-          <url>http://repository.mulesoft.org/nexus/content/repositories/public</url>
+          <url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
         </pluginRepository>
       </pluginRepositories>
     </profile>
@@ -96,7 +96,7 @@
          <repository>
           <id>MuleRepositoryPublic</id>
           <name>MuleRepositoryPublic</name>
-          <url>http://repository.mulesoft.org/nexus/content/repositories/public</url>
+          <url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
           <layout>default</layout>
           <releases>
             <enabled>true</enabled>
