@@ -40,7 +40,7 @@
                         <cloudhub.environment>Develop</cloudhub.environment>
                         <cloudhub.businessGroup>$(cloudhub_businessGroup)</cloudhub.businessGroup>
                         <cloudhub.businessGroupId>$(cloudhub_businessGroupId)</cloudhub.businessGroupId>
-                        <cloudhub.region>$(cloudhub_region)</cloudhub.region>
+                        <cloudhub.region>$(env.cloudhub_region)</cloudhub.region>
                         <cloudhub.workerType>$(cloudhub_workerType)</cloudhub.workerType>
                         <cloudhub.workers>1</cloudhub.workers>
                         <cloudhub.muleVersion>$(cloudhub_muleVersion)</cloudhub.muleVersion>
