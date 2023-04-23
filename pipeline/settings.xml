@@ -4,8 +4,8 @@
     <servers>
 		<server>
 		  <id>MuleRepository</id>
-		  <username>yourMuleNexusID</username>
-		  <password>yourMuleNexusPassword</password>
+		  <username>mdrIbtissam</username>
+		  <password>Ibtissam@12345</password>
 		</server>
 	    <server>
 	      <id>anypoint-exchange-v3</id>
