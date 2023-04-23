@@ -35,21 +35,21 @@
                     <id>cloudhub-deploy-env</id>
                     <properties>
                         <cloudhub.uri>https://anypoint.mulesoft.com</cloudhub.uri>
-                        <cloudhub.username>$(cloudhub_username)</cloudhub.username>
-                        <cloudhub.password>$(cloudhub_password)</cloudhub.password>
-                        <cloudhub.applicationName>$(cloudhub_applicationName)</cloudhub.applicationName>
-                        <cloudhub.environment>Develop</cloudhub.environment>
-                        <cloudhub.businessGroup>$(cloudhub.businessGroup)</cloudhub.businessGroup>
-                        <cloudhub.businessGroupId>$(cloudhub.businessGroupId)</cloudhub.businessGroupId>
-                        <cloudhub.region>us-east-2</cloudhub.region>
-                        <cloudhub.workerType>$(cloudhub_workerType)</cloudhub.workerType>
-                        <cloudhub.workers>1</cloudhub.workers>
-                        <cloudhub.muleVersion>$(cloudhub_muleVersion)</cloudhub.muleVersion>
-                        <deploy.env>develop</deploy.env>
-                        <deploy.client_id>$(deploy_client_id)</deploy.client_id>
-                        <deploy.client_secret>$(deploy_client_secret)</deploy.client_secret>
-                        <deploy.api-gatekeeper>$(deploy_api_gatekeeper)</deploy.api-gatekeeper>
-                        <deploy.api-monitoring>$(deploy_api_monitoring)</deploy.api-monitoring>
+                        <cloudhub.username>${cloudhub_username}</cloudhub.username>
+                        <cloudhub.password>${cloudhub_password}</cloudhub.password>
+                        <cloudhub.applicationName>${cloudhub_applicationName}</cloudhub.applicationName>
+                        <cloudhub.environment>${cloudhub_environment}</cloudhub.environment>
+                        <cloudhub.businessGroup>${cloudhub.businessGroup}</cloudhub.businessGroup>
+                        <cloudhub.businessGroupId>${cloudhub.businessGroupId}</cloudhub.businessGroupId>
+                        <cloudhub.region>${cloudhub_region}</cloudhub.region>
+                        <cloudhub.workerType>${cloudhub_workerType}</cloudhub.workerType>
+                        <cloudhub.workers>${cloudhub_workers}</cloudhub.workers>
+                        <cloudhub.muleVersion>${cloudhub_muleVersion}</cloudhub.muleVersion>
+                        <deploy.env>${deploy_env}</deploy.env>
+                        <deploy.client_id>${deploy_client_id}</deploy.client_id>
+                        <deploy.client_secret>${deploy_client_secret}</deploy.client_secret>
+                        <deploy.api-gatekeeper>${deploy_api_gatekeeper}</deploy.api-gatekeeper>
+                        <deploy.api-monitoring>${deploy_api_monitoring}</deploy.api-monitoring>
                     </properties>
                 </profile>
  
