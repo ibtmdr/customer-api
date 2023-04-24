@@ -12,6 +12,11 @@
 	      <username>mdrIbtissam</username>
 		  <password>Ibtissam@12345</password>
 	    </server>
+	    <server>
+	      <id>PrivateExchangeRepository</id>
+          <username>mdrIbtissam</username>
+		  <password>Ibtissam@12345</password>
+	    </server>
   </servers>
 
   <pluginGroups>
