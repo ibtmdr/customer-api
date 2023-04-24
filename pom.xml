@@ -208,6 +208,6 @@
 			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
 			<layout>default</layout>
 		</repository>
-	</distributionManagement>
+    </distributionManagement>
 
 </project>
