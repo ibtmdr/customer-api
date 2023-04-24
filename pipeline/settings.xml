@@ -71,7 +71,7 @@
          <repository>
 			<id>MuleRepositoryMaster</id>
 			<name>MuleRepositoryMaster</name>
-			<url>https://repository-master.mulesoft.org/nexus/content/repositories/</url>
+			<url>http://repository-master.mulesoft.org/nexus/content/repositories/</url>
 			<layout>default</layout>
 			<releases>
 	            <enabled>true</enabled>
