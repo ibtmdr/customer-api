@@ -12,16 +12,6 @@
 	      <username>~~~myexchange~~~</username>
 	      <password>0209d120726a46928785e5584c7c20a8~?~99e03cd1443040fEaEA8557de99A3C4c</password>
 	    </server>
-	    <server>
-	      <id>Repository</id>
-	      <username>mdrIbtissam</username>
-		  <password>Ibtissam@12345</password>
-		</server>
-	    <server>
-	      <id>PrivateExchangeRepository</id>
-          <username>mdrIbtissam</username>
-		  <password>Ibtissam@12345</password>
-	    </server>
   </servers>
 
   <pluginGroups>
@@ -52,27 +42,6 @@
                     </properties>
                 </profile>
  
-    <profile>
-      <id>mule-extra-repos</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-
-      <repositories>
-        <repository>
-          <id>mule-public</id>
-          <url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
-        </repository>
-      </repositories>
-
-      <pluginRepositories>
-        <pluginRepository>
-          <id>mule-public</id>
-          <url>https://repository.mulesoft.org/nexus/content/repositories/public</url>
-        </pluginRepository>
-      </pluginRepositories>
-    </profile>
-
     <profile>
       <id>Mule</id>
       <activation>

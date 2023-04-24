@@ -14,9 +14,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.4.0</app.runtime>
-		<mule.runtime>4.4.0</mule.runtime>
+		<mule.runtime>4.4.0-20220321</mule.runtime>
 		<mule.maven.plugin.version>3.5.2</mule.maven.plugin.version>
-		<munit.version>2.3.1</munit.version>
+		<munit.version>2.2.5</munit.version>
 	</properties>
 
 	<build>
@@ -76,6 +76,9 @@
 					</execution>
 				</executions>
 				<configuration>
+					<environmentVariables>
+						<mule.env>develop</mule.env>
+					</environmentVariables>
 					<coverage>
 						<runCoverage>true</runCoverage>
 						<formats>
@@ -85,6 +88,24 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/log4j2.xml</include>
+					<include>**/*.yaml</include>
+				</includes>
+			</resource>
+			<!-- Inlude all the file in resource folder with filtering off -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
 
 	<dependencies>
@@ -115,14 +136,14 @@
 		</dependency>
 		<dependency>
 			<groupId>com.mulesoft.munit</groupId>
-			<artifactId>munit-runner</artifactId>
+			<artifactId>munit-tools</artifactId>
 			<version>2.3.13</version>
 			<classifier>mule-plugin</classifier>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.mulesoft.munit</groupId>
-			<artifactId>munit-tools</artifactId>
+			<artifactId>munit-runner</artifactId>
 			<version>2.3.13</version>
 			<classifier>mule-plugin</classifier>
 			<scope>test</scope>
@@ -133,6 +154,12 @@
 			<version>1.0.2</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.modules</groupId>
+			<artifactId>mule-secure-configuration-property-module</artifactId>
+			<version>1.2.5</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
@@ -141,18 +168,15 @@
 			<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
 			<layout>default</layout>
 		</repository>
+		
 		<repository>
 			<id>mulesoft-releases</id>
 			<name>MuleSoft Releases Repository</name>
-			<url>http://repository.mulesoft.org/releases/</url>
+			<url>https://repository.mulesoft.org/releases/</url>
 			<layout>default</layout>
 		</repository>
-		<repository>
-			<id>PrivateExchangeRepository</id>
-			<name>Private Exchange repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
-			<layout>default</layout>
-		</repository>
+		
+		
 	</repositories>
 
 	<pluginRepositories>
@@ -160,19 +184,11 @@
 			<id>mulesoft-releases</id>
 			<name>MuleSoft Releases Repository</name>
 			<layout>default</layout>
-			<url>http://repository.mulesoft.org/releases/</url>
+			<url>https://repository.mulesoft.org/releases/</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-	<distributionManagement>
-		<repository>
-			<id>PrivateExchangeRepository</id>
-			<name>Private Exchange repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/6a860bc2-7c16-4fc4-8c42-9a362133e5f9/maven</url>
-			<layout>default</layout>
-		</repository>
-	</distributionManagement>
 
 </project>
